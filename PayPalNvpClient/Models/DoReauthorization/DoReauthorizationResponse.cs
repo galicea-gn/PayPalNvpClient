@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.DoReauthorization
+namespace PayPalNvpClient.Models
 {
     class DoReauthorizationResponse
     {

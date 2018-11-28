@@ -50,7 +50,7 @@ namespace PayPalNvpClient.Helpers
                             jValue?.ToString("o", CultureInfo.InvariantCulture) :
                             jValue?.ToString(CultureInfo.InvariantCulture);
 
-            return new Dictionary<string, string> { { token.Path, value } };
+            return new Dictionary<string, string> { { token.Path?.Replace(".Value", string.Empty), value } };
         }
 
         public static TResponse FromKeyValues<TResponse>(string response)

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.GetBalance
+namespace PayPalNvpClient.Models
 {
     class GetBalanceResponse
     {

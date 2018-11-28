@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
-using PayPalNvpClient.Enumerations.IntEnumerations;
+using PayPalNvpClient.Enumerations;
+using PayPalNvpClient.Exceptions;
 using PayPalNvpClient.Helpers;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Net;
 using System.Text;
 using System.Web;
 
-namespace PayPalNvpClient.Models.DoReferenceTransaction
+namespace PayPalNvpClient.Models
 {
     public class DoReferenceTransactionRequest : IRequest<DoReferenceTransactionResponse>
     {
@@ -16,18 +17,23 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
 
         #region Required Fields
         [JsonProperty("REFERENCEID")]
+        [RequiredNameValuePair]
         public string ReferenceId { get; set; }
 
         [JsonProperty("PAYMENTACTION")]
-        public string PaymentAction { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        [RequiredNameValuePair]
+        public PaymentActionEnum PaymentAction { get; set; }
 
         [JsonProperty("AMT")]
+        [RequiredNameValuePair]
         public double Amount { get; set; }
         #endregion Required Fields
 
         #region DoReferenceTransaction Request Fields
         [JsonProperty("PAYMENTTYPE")]
-        public string PaymentType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PaymentTypeEnum PaymentType { get; set; }
 
         [JsonProperty("IPADDRESS")]
         public IPAddress IpAddress { get; set; }
@@ -82,7 +88,8 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
 
         #region Payment Details Fields
         [JsonProperty("CURRENCYCODE")]
-        public string CurrencyCode { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public CurrencyCodeEnum CurrencyCode { get; set; }
 
         [JsonProperty("ITEMAMT")]
         public string ItemAmount { get; set; }
@@ -118,7 +125,8 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
         public string NotifyUrl { get; set; }
 
         [JsonProperty("RECURRING")]
-        public char Recurring { get; set; } = 'N';
+        [JsonConverter(typeof(StringEnumConverter))]
+        public RecurringEnum Recurring { get; set; } = RecurringEnum.RecurringDisabled;
 
         [JsonProperty("BUCKETCATEGORYTYPE")]
         public BucketCategoryTypeEnum BucketCategoryType { get; set; }
@@ -126,7 +134,8 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
 
         #region Payment Details Item Fields
         [JsonProperty("L_ITEMCATEGORYn")]
-        public string ItemCategory { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ItemCategoryEnum ItemCategory { get; set; }
 
         [JsonProperty("L_NAMEn")]
         public string ItemName { get; set; }
@@ -160,7 +169,8 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
 
         #region Reference Credit Card Details Fields
         [JsonProperty("CREDITCARDTYPE")]
-        public string CreditCardType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public CreditCardTypeEnum CreditCardType { get; set; }
 
         [JsonProperty("ACCT")]
         public string CreditCardNumber { get; set; }
@@ -217,13 +227,13 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
             ReferenceId = referenceId;
         }
 
-        public DoReferenceTransactionRequest(string referenceId, string paymentAction)
+        public DoReferenceTransactionRequest(string referenceId, PaymentActionEnum paymentAction)
             : this(referenceId)
         {
             PaymentAction = paymentAction;
         }
 
-        public DoReferenceTransactionRequest(string referenceId, string paymentAction, double amount)
+        public DoReferenceTransactionRequest(string referenceId, PaymentActionEnum paymentAction, double amount)
             : this(referenceId, paymentAction)
         {
             Amount = amount;
@@ -231,14 +241,6 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
 
         public DoReferenceTransactionResponse GenerateResponseObject(string formUrlEncodedString) => FormUrlEncodedHelper.FromKeyValues<DoReferenceTransactionResponse>(HttpUtility.UrlDecode(formUrlEncodedString));
 
-        public bool IsValidRequest()
-        {
-            if (string.IsNullOrEmpty(ReferenceId) || string.IsNullOrEmpty(PaymentAction))
-            {
-                return false;
-            }
-
-            return true;
-        }
+        public string GetMethod() => Method;
     }
 }

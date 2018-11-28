@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
+using PayPalNvpClient.Enumerations;
+using PayPalNvpClient.Exceptions;
 using PayPalNvpClient.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
 
-namespace PayPalNvpClient.Models.BAUpdate
+namespace PayPalNvpClient.Models
 {
     public class BAUpdateRequest : IRequest<BAUpdateResponse>
     {
@@ -14,12 +16,14 @@ namespace PayPalNvpClient.Models.BAUpdate
 
         #region Required Fields
         [JsonProperty("REFERENCEID")]
+        [RequiredNameValuePair]
         public string ReferenceId { get; set; }
         #endregion Required Fields
 
         #region BAUpdate Request Fields
         [JsonProperty("BILLINGAGREEMENTSTATUS")]
-        public string BillingAgreementStatus { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public BillingAgreementStatusEnum BillingAgreementStatus { get; set; }
 
         [JsonProperty("BILLINGAGREEMENTDESCRIPTION")]
         public string BillingAgreementDescription { get; set; }
@@ -38,14 +42,6 @@ namespace PayPalNvpClient.Models.BAUpdate
 
         public BAUpdateResponse GenerateResponseObject(string formUrlEncodedString) => FormUrlEncodedHelper.FromKeyValues<BAUpdateResponse>(HttpUtility.UrlDecode(formUrlEncodedString));
 
-        public bool IsValidRequest()
-        {
-            if (string.IsNullOrEmpty(ReferenceId))
-            {
-                return false;
-            }
-
-            return true;
-        }
+        public string GetMethod() => Method;
     }
 }

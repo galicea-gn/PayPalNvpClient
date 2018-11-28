@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.DoExpressCheckoutPayment
+namespace PayPalNvpClient.Models
 {
     class DoExpressCheckoutPaymentRequest
     {

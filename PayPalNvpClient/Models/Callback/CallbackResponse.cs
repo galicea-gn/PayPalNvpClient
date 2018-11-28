@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.Callback
+namespace PayPalNvpClient.Models
 {
     class CallbackResponse
     {

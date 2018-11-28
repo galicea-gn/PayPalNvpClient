@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.SetCustomerBillingAgreement
+namespace PayPalNvpClient.Models
 {
     class SetCustomerBillingAgreementResponse
     {

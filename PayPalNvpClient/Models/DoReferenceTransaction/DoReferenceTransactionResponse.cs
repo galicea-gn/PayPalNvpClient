@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using PayPalNvpClient.Enumerations;
+using PayPalNvpClient.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.DoReferenceTransaction
+namespace PayPalNvpClient.Models
 {
     public class DoReferenceTransactionResponse
     {
@@ -41,10 +43,12 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
         public string ReceiptId { get; set; }
 
         [JsonProperty("TRANSACTIONTYPE")]
-        public string TransactionType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public TransactionTypeEnum TransactionType { get; set; }
 
         [JsonProperty("PAYMENTTYPE")]
-        public string PaymentType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PaymentTypeEnum PaymentType { get; set; }
 
         [JsonProperty("ORDERTIME")]
         public string OrderTime { get; set; }
@@ -53,7 +57,8 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
         public string Amount { get; set; }
 
         [JsonProperty("CURRENCYCODE")]
-        public string CurrencyCode { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public CurrencyCodeEnum CurrencyCode { get; set; }
 
         [JsonProperty("FEEAMT")]
         public string FeeAmount { get; set; }
@@ -68,19 +73,24 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
         public string ExchangeRate { get; set; }
 
         [JsonProperty("PAYMENTSTATUS")]
-        public string PaymentStatus { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PaymentStatusEnum PaymentStatus { get; set; }
 
         [JsonProperty("PENDINGREASON")]
-        public string PendingReason { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PendingReasonEnum PendingReason { get; set; }
 
         [JsonProperty("REASONCODE")]
-        public string ReasonCode { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ReasonCodeEnum ReasonCode { get; set; }
 
         [JsonProperty("PROTECTIONELIGIBILITY")]
-        public string ProtectionEligibility { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ProtectionEligibilityEnum ProtectionEligibility { get; set; }
 
         [JsonProperty("PROTECTIONELIGIBILITYTYPE")]
-        public string ProtectionEligibilityType { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ProtectionEligibilityTypeEnum ProtectionEligibilityType { get; set; }
 
         [JsonProperty("STOREID")]
         public string StoreId { get; set; }
@@ -89,7 +99,7 @@ namespace PayPalNvpClient.Models.DoReferenceTransaction
         public string TerminalId { get; set; }
 
         [JsonProperty("INSTRUMENTCATEGORY")]
-        public string IntstrumentCategory { get; set; }
+        public InstrumentCategoryEnum IntstrumentCategory { get; set; }
 
         [JsonProperty("INSTRUMENTID")]
         public string InstrumentId { get; set; }

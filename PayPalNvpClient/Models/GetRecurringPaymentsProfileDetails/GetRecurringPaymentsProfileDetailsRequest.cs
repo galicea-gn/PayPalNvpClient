@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.GetRecurringPaymentsProfileDetails
+namespace PayPalNvpClient.Models
 {
     class GetRecurringPaymentsProfileDetailsRequest
     {

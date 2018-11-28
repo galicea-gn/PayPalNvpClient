@@ -26,7 +26,7 @@ namespace PayPalNvpClient
 
         public async Task<TResponse> SendRequest<TResponse>(IRequest<TResponse> request) where TResponse : class
         {
-            if (request == null || !request.IsValidRequest())
+            if (request == null || !RequestValidationHelper.IsValidRequest(request))
             {
                 return null;
             }

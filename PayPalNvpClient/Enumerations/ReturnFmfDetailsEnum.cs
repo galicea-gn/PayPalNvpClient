@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Enumerations.IntEnumerations
+namespace PayPalNvpClient.Enumerations
 {
     public enum ReturnFmfDetailsEnum
     {

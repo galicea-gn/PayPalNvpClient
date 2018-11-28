@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.DoCapture
+namespace PayPalNvpClient.Models
 {
     class DoCaptureRequest
     {

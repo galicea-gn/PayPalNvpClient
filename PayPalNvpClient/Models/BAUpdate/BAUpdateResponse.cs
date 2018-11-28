@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using PayPalNvpClient.Enumerations;
+using PayPalNvpClient.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PayPalNvpClient.Models.BAUpdate
+namespace PayPalNvpClient.Models
 {
     public class BAUpdateResponse : IResponse
     {
@@ -18,7 +20,8 @@ namespace PayPalNvpClient.Models.BAUpdate
         public string BillingAgreementCustom { get; set; }
 
         [JsonProperty("BILLINGAGREEMENTSTATUS")]
-        public string BillingAgreementStatus { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public BillingAgreementStatusEnum BillingAgreementStatus { get; set; }
 
         [JsonProperty("BILLINGAGREEMENTMAX")]
         public string BillingAgreementMax { get; set; }
@@ -35,7 +38,8 @@ namespace PayPalNvpClient.Models.BAUpdate
         public string PayerId { get; set; }
 
         [JsonProperty("PAYERSTATUS")]
-        public string PayerStatus { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public PayerStatusEnum PayerStatus { get; set; }
 
         [JsonProperty("COUNTRYCODE")]
         public string CountryCode { get; set; }
