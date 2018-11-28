@@ -1,9 +1,0 @@
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\bin\Debug\netcoreapp2.1\PayPalNvpClient.deps.json
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\bin\Debug\netcoreapp2.1\PayPalNvpClient.dll
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\obj\Debug\netcoreapp2.1\PayPalNvpClient.csproj.CoreCompileInputs.cache
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\obj\Debug\netcoreapp2.1\PayPalNvpClient.AssemblyInfoInputs.cache
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\obj\Debug\netcoreapp2.1\PayPalNvpClient.AssemblyInfo.cs
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\bin\Debug\netcoreapp2.1\PayPalNvpClient.pdb
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\obj\Debug\netcoreapp2.1\PayPalNvpClient.dll
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\obj\Debug\netcoreapp2.1\PayPalNvpClient.pdb
-C:\dev\Source\Utility\PayPalNvpClient\PayPalNvpClient\obj\Debug\netcoreapp2.1\PayPalNvpClient.csprojAssemblyReference.cache
