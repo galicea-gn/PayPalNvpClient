@@ -11,17 +11,10 @@ namespace PayPalNvpClient
         private readonly IRestClient _restClient;
         private IPayPalNvpClientConfiguration _config { get; }
 
-        public PayPalNvpApiClient(IPayPalNvpClientConfiguration configuration)
+        public PayPalNvpApiClient(IPayPalNvpClientConfiguration configuration, IRestClient client = null)
         {
             _config = configuration;
             _restClient = _restClient == null ? new RestClient() : _restClient;
-        }
-
-        public PayPalNvpApiClient(IPayPalNvpClientConfiguration configuration, IRestClient client)
-            : this(configuration)
-        {
-            _config = configuration;
-            _restClient = client;
         }
 
         public async Task<TResponse> SendRequest<TResponse>(IRequest<TResponse> request) where TResponse : class

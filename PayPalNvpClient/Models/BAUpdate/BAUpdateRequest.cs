@@ -4,6 +4,7 @@ using PayPalNvpClient.Exceptions;
 using PayPalNvpClient.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Web;
 
@@ -40,7 +41,7 @@ namespace PayPalNvpClient.Models
             ReferenceId = referenceId;
         }
 
-        public BAUpdateResponse GenerateResponseObject(string formUrlEncodedString) => FormUrlEncodedHelper.FromKeyValues<BAUpdateResponse>(HttpUtility.UrlDecode(formUrlEncodedString));
+        public BAUpdateResponse GenerateResponseObject(string formUrlEncodedString) => FormUrlEncodedHelper.FromKeyValues<BAUpdateResponse>(WebUtility.UrlDecode(formUrlEncodedString));
 
         public string GetMethod() => Method;
     }

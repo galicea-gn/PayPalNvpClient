@@ -8,18 +8,18 @@ namespace PayPalNvpClient.Enumerations
     {
         public PendingReasonEnum(string value) : base(value) { }
 
-        public static PendingReasonEnum None => new PendingReasonEnum("None");
-        public static PendingReasonEnum CanceledReversal => new PendingReasonEnum("Canceled-Reversal");
-        public static PendingReasonEnum Completed => new PendingReasonEnum("Completed");
-        public static PendingReasonEnum Denied => new PendingReasonEnum("Denied");
-        public static PendingReasonEnum Expired => new PendingReasonEnum("Expired");
-        public static PendingReasonEnum Failed => new PendingReasonEnum("Failed");
-        public static PendingReasonEnum InProgress => new PendingReasonEnum("In-Progress");
-        public static PendingReasonEnum PartiallyRefunded => new PendingReasonEnum("Partially-Refunded");
-        public static PendingReasonEnum Pending => new PendingReasonEnum("Pending");
-        public static PendingReasonEnum Reversed => new PendingReasonEnum("Reversed");
-        public static PendingReasonEnum Processed => new PendingReasonEnum("Processed");
-        public static PendingReasonEnum Voided => new PendingReasonEnum("Voided");
+        public static PendingReasonEnum None => new PendingReasonEnum("none");
+        public static PendingReasonEnum Address => new PendingReasonEnum("address");
+        public static PendingReasonEnum Authorization => new PendingReasonEnum("authorization");
+        public static PendingReasonEnum ECheck => new PendingReasonEnum("echeck");
+        public static PendingReasonEnum International => new PendingReasonEnum("intl");
+        public static PendingReasonEnum MultiCurrency => new PendingReasonEnum("multi-currency");
+        public static PendingReasonEnum Order => new PendingReasonEnum("order");
+        public static PendingReasonEnum PaymentReview => new PendingReasonEnum("paymentreview");
+        public static PendingReasonEnum RegulatoryReview => new PendingReasonEnum("regulatoryreview");
+        public static PendingReasonEnum Unilateral => new PendingReasonEnum("unilateral");
+        public static PendingReasonEnum Verify => new PendingReasonEnum("verify");
+        public static PendingReasonEnum Other => new PendingReasonEnum("other");
 
         public static implicit operator string(PendingReasonEnum value)
         {

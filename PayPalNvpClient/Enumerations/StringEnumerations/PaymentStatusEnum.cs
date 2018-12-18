@@ -8,18 +8,18 @@ namespace PayPalNvpClient.Enumerations
     {
         public PaymentStatusEnum(string value) : base(value) { }
 
-        public static PendingReasonEnum None => new PendingReasonEnum("none");
-        public static PendingReasonEnum Address => new PendingReasonEnum("address");
-        public static PendingReasonEnum Authorization => new PendingReasonEnum("authorization");
-        public static PendingReasonEnum ECheck => new PendingReasonEnum("echeck");
-        public static PendingReasonEnum International => new PendingReasonEnum("intl");
-        public static PendingReasonEnum MultiCurrency => new PendingReasonEnum("multi-currency");
-        public static PendingReasonEnum Order => new PendingReasonEnum("order");
-        public static PendingReasonEnum PaymentReview => new PendingReasonEnum("paymentreview");
-        public static PendingReasonEnum RegulatoryReview => new PendingReasonEnum("regulatoryreview");
-        public static PendingReasonEnum Unilateral => new PendingReasonEnum("unilateral");
-        public static PendingReasonEnum Verify => new PendingReasonEnum("verify");
-        public static PendingReasonEnum Other => new PendingReasonEnum("other");
+        public static PaymentStatusEnum None => new PaymentStatusEnum("None");
+        public static PaymentStatusEnum CanceledReversal => new PaymentStatusEnum("Canceled-Reversal");
+        public static PaymentStatusEnum Completed => new PaymentStatusEnum("Completed");
+        public static PaymentStatusEnum Denied => new PaymentStatusEnum("Denied");
+        public static PaymentStatusEnum Expired => new PaymentStatusEnum("Expired");
+        public static PaymentStatusEnum Failed => new PaymentStatusEnum("Failed");
+        public static PaymentStatusEnum InProgress => new PaymentStatusEnum("In-Progress");
+        public static PaymentStatusEnum PartiallyRefunded => new PaymentStatusEnum("Partially-Refunded");
+        public static PaymentStatusEnum Pending => new PaymentStatusEnum("Pending");
+        public static PaymentStatusEnum Reversed => new PaymentStatusEnum("Reversed");
+        public static PaymentStatusEnum Processed => new PaymentStatusEnum("Processed");
+        public static PaymentStatusEnum Voided => new PaymentStatusEnum("Voided");
 
         public static implicit operator string(PaymentStatusEnum value)
         {

@@ -239,7 +239,7 @@ namespace PayPalNvpClient.Models
             Amount = amount;
         }
 
-        public DoReferenceTransactionResponse GenerateResponseObject(string formUrlEncodedString) => FormUrlEncodedHelper.FromKeyValues<DoReferenceTransactionResponse>(HttpUtility.UrlDecode(formUrlEncodedString));
+        public DoReferenceTransactionResponse GenerateResponseObject(string formUrlEncodedString) => FormUrlEncodedHelper.FromKeyValues<DoReferenceTransactionResponse>(WebUtility.UrlDecode(formUrlEncodedString));
 
         public string GetMethod() => Method;
     }
