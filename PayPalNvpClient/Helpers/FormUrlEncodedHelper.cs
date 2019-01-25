@@ -1,10 +1,12 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PayPalNvpClient.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 
 namespace PayPalNvpClient.Helpers
@@ -60,7 +62,7 @@ namespace PayPalNvpClient.Helpers
                 return default(TResponse);
             }
 
-            NameValueCollection collection = HttpUtility.ParseQueryString(response);
+            NameValueCollection collection = new Uri("http://example.org?" + response).ParseQueryString();
             string json = JsonConvert.SerializeObject(collection.Cast<string>().ToDictionary(k => k, v => collection[v]));
             return JsonConvert.DeserializeObject<TResponse>(json);
         }
